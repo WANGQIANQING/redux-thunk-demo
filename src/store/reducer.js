@@ -18,6 +18,9 @@ export default (state = defaultState, action) => {
     case actionTypes.DELETE_TODO_ITEM:
       newState.list.splice(action.index, 1);
       return newState;
+    case actionTypes.INIT_LIST_ACTION:
+      newState.list = action.data;
+      return newState;
     default:
       return state;
   }

@@ -16,6 +16,11 @@ class TodoList extends Component {
     });
   }
 
+  componentDidMount() {
+    const action = actionCreators.getTodoList();
+    store.dispatch(action);
+  }
+
   render() {
     return <TodoListUI
       inputValue={this.state.inputValue}
