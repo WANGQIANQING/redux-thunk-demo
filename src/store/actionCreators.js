@@ -1,5 +1,4 @@
 import * as actionTypes from "./actionTypes";
-import axios from 'axios';
 
 export const getInputChangeAction = (value) => ({
   type: actionTypes.CHANGE_INPUT_VALUE,
@@ -15,18 +14,21 @@ export const getDeleteItemAction = (index) => ({
   index
 });
 
-const initListAction = (data) => ({
+export const initListAction = (data) => ({
   type: actionTypes.INIT_LIST_ACTION,
   data
 });
 
-export const getTodoList = () => {
-  return (dispatch,getState) => {
-    axios.get('/api/list.json').then((res) => {
-      const data = res.data;
-      const action = initListAction(data);
-      dispatch(action);
-      // console.log(getState());
-    });
-  };
-};
+export const getInitList = ()=> ({
+  type: actionTypes.GET_INIT_LIST
+});
+
+// export const getTodoList = () => {
+//   return (dispatch,getState) => {
+//     axios.get('/api/list.json').then((res) => {
+//       const data = res.data;
+//       const action = initListAction(data);
+//       dispatch(action);
+//     });
+//   };
+// };
